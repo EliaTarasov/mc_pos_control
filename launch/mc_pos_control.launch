@@ -1,0 +1,15 @@
+<launch>
+  <!-- Name of the node -->
+  <arg name="mc_pos_control_node" default="mc_pos_control"/>
+
+  <node pkg="mc_pos_control" name="$(arg mc_pos_control_node)" type="mc_pos_control" output="screen">
+    <param name="publish_rate" value="30" type="int"/>
+    <param name="control_mode" value="0" type="int"/>
+    <!-- 
+     0 - position. 
+     1 - altitude. 
+     2 - manual.
+     -->
+  </node>
+
+</launch>
