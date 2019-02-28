@@ -9,7 +9,7 @@ namespace mc_pos_control
 
 Node::Node(const ros::NodeHandle &nh, const ros::NodeHandle &pnh) : nh_(pnh), init_(false) {
   ROS_INFO("Subscribing to odometry");
-  subOdom_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1, &Node::odomCallback, this);
+  subOdom_ = nh_.subscribe<nav_msgs::Odometry>("odometry", 1, &Node::odomCallback, this);
 
   ROS_INFO("Subscribing to extended state");
   subExtendedState_ = nh_.subscribe("extended_state", 1, &Node::extendedStateCallback, this);
