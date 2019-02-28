@@ -9,16 +9,16 @@ namespace mc_pos_control
 
 Node::Node(const ros::NodeHandle &nh, const ros::NodeHandle &pnh) : nh_(pnh), init_(false) {
   ROS_INFO("Subscribing to odometry");
-  subOdom_ = nh_.subscribe<nav_msgs::Odometry>("/mavros/local_position/odom", 1, &Node::odomCallback, this);
+  subOdom_ = nh_.subscribe<nav_msgs::Odometry>("odom", 1, &Node::odomCallback, this);
 
   ROS_INFO("Subscribing to extended state");
-  subExtendedState_ = nh_.subscribe("/mavros/extended_state", 1, &Node::extendedStateCallback, this);
+  subExtendedState_ = nh_.subscribe("extended_state", 1, &Node::extendedStateCallback, this);
 
   ROS_INFO("Subscribing to state");
-  subState_ = nh_.subscribe("/mavros/state", 1, &Node::stateCallback, this);
+  subState_ = nh_.subscribe("state", 1, &Node::stateCallback, this);
 
   ROS_INFO("Subscribing to manual control");
-  subManualControl_ = nh_.subscribe<mavros_msgs::ManualControl>("/mavros/manual_control/control", 1, &Node::manualControlCallback, this);
+  subManualControl_ = nh_.subscribe<mavros_msgs::ManualControl>("manual_control", 1, &Node::manualControlCallback, this);
 
   pubAttitudeTarget_ = nh_.advertise<mavros_msgs::AttitudeTarget>("attitude_target", 1);
 

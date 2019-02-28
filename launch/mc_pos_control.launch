@@ -2,7 +2,23 @@
   <!-- Name of the node -->
   <arg name="mc_pos_control_node" default="mc_pos_control"/>
 
+  <!-- ODOMETRY topic to use -->
+  <arg name="odometry_topic" default="/mavros/local_position/odom"/>
+
+  <!-- STATE topic to use -->
+  <arg name="state_topic" default="/mavros/state"/>
+
+  <!-- EXTENDED STATE topic to use -->
+  <arg name="extended_state_topic" default="/mavros/extended_state"/>
+
+  <!-- MANUAL CONTROL topic to use -->
+  <arg name="manual_control_topic" default="/mavros/manual_control/control"/>
+
   <node pkg="mc_pos_control" name="$(arg mc_pos_control_node)" type="mc_pos_control" output="screen">
+    <remap from="~odometry" to="$(arg odometry_topic)"/>
+    <remap from="~state" to="$(arg state_topic)"/>
+    <remap from="~extended_state" to="$(arg extended_state_topic)"/>
+    <remap from="~manual_control" to="$(arg manual_control_topic)"/>
     <param name="publish_rate" value="30" type="int"/>
     <param name="control_mode" value="0" type="int"/>
     <!-- 
