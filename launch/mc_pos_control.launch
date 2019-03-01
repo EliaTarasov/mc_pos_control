@@ -3,7 +3,7 @@
   <arg name="mc_pos_control_node" default="mc_pos_control"/>
 
   <!-- ODOMETRY topic to use -->
-  <arg name="odometry_topic" default="/mavros/local_position/odom"/>
+  <arg name="odometry_topic" default="/eskf/pose"/>
 
   <!-- STATE topic to use -->
   <arg name="state_topic" default="/mavros/state"/>
