@@ -109,7 +109,7 @@ namespace mc_pos_control {
      * 	@return The position set-point member.
      */
     const vec3& getPosSp() { return _pos_sp; }
-    
+
     void setDt(scalar_t dt) {
       _vel_x_deriv.setDt(dt);
       _vel_y_deriv.setDt(dt);

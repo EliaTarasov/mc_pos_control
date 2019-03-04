@@ -20,7 +20,6 @@ bool FlightTasks::activate() {
 }
 
 bool FlightTasks::updateInitialize() {
-  _evaluateVehicleLocalPosition();
   return true;
 }
 
@@ -58,8 +57,6 @@ void FlightTasks::_resetSetpoints() {
   _thrust_setpoint.fill(NAN);
   _yaw_setpoint = _yawspeed_setpoint = NAN;
 }
-
-void FlightTasks::_evaluateVehicleLocalPosition() {}
 
 void FlightTasks::updateState(const PositionControlStates& states) {
   _position = q_ng.inverse().toRotationMatrix() * states.position;

@@ -54,11 +54,6 @@ protected:
    */
   void _resetSetpoints();
 
-  /**
-   * Check and update local position
-   */
-  void _evaluateVehicleLocalPosition();
-
   /* Current vehicle state */
   vec3 _position; /**< current vehicle position */
   vec3 _velocity; /**< current vehicle velocity */

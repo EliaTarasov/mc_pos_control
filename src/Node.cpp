@@ -30,10 +30,10 @@ Node::Node(const ros::NodeHandle &nh, const ros::NodeHandle &pnh) : nh_(pnh), in
   ros::param::get("~control_mode", control_mode);
 
   switch(control_mode) {
-    case 0  : flightTask_ = new FlightTaskManualPosition();
-    case 1  : flightTask_ = new FlightTaskManualAltitude();
-    case 2  : flightTask_ = new FlightTaskManual();
-    default : flightTask_ = new FlightTaskManualPosition();
+    case 0  : { flightTask_ = new FlightTaskManualPosition(); break; }
+    case 1  : { flightTask_ = new FlightTaskManualAltitude(); break; }
+    case 2  : { flightTask_ = new FlightTaskManual(); break; }
+    default : { flightTask_ = new FlightTaskManualPosition(); }
   }
 }
 
