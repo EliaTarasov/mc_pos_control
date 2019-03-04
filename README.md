@@ -1,5 +1,5 @@
 # mc_pos_control
-ROS node for multicopter position control based on px4/mc_pos_control. Performs altitude control
+ROS node for multicopter position control based on px4/mc_pos_control. Performs manual/altitude/position control.
 
 # Description
-Performs PID-control for position and velocity setpoints.
+Performs P-control for position and PID-control velocity setpoints.
